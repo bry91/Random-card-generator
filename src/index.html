@@ -1,29 +1,87 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <style>
+      body {
+        background: grey !important;
+      }
+      .play-card {
+        display: block;
+        margin: auto;
+        height: 400px;
+        width: 300px;
+        padding: 20px !important;
+        top: 40px;
+        border-radius: 5px;
+        background-color: white;
+        border: 2px solid black;
+        position: relative;
+      }
+      .card-number {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 125px;
+        margin: auto;
+        font-size: 100px;
+        font-family: curtsive;
+        color: black;
+        text-align: center;
+      }
+      .bottom-right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 15px;
+      }
+      .bi {
+        font-size: 50px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+    <div class="container">
+      <div class="play-card">
+        <div class="card-number"></div>
+        <div class="card-suits text-danger"></div>
+        <div class="card-suits text-danger bottom-right"></div>
       </div>
     </div>
+    <script>
+      const values = [
+        "A",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "J",
+        "Q",
+        "K"
+      ];
+
+      let value = values[Math.floor(Math.random() * 12)];
+      const suits = [
+        "bi-heart-fill",
+        "bi-suit-club-fill",
+        "bi-diamond-fill",
+        "bi-suit-spade-fill"
+      ];
+      let suit = suits[Math.floor(Math.random() * 3)];
+      document.querySelector(".card-number").innerHTML = value;
+      document.querySelector(
+        ".card-suits"
+      ).innerHTML = `<i class="bi ${suit}"></i>`;
+      document.querySelector(
+        ".bottom-right"
+      ).innerHTML = `<i class="bi ${suit}"></i>`;
+    </script>
   </body>
 </html>
